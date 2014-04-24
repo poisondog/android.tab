@@ -2,6 +2,10 @@
 *.apk
 *.ap_
 
+# Temprary for Vim
+*.swp
+*.swo
+
 # Files for the Dalvik VM
 *.dex
 
