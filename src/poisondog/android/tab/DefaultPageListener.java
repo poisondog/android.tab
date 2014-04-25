@@ -6,8 +6,6 @@ package poisondog.android.tab;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.view.Menu;
-import java.util.List;
 /**
  * @author poisondog <poisondog@gmail.com>
  */
