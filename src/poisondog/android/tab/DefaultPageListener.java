@@ -29,7 +29,9 @@ public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
 	@Override
 	public void onPageSelected (int position) {
 		mActionBar.setSelectedNavigationItem(position);
-		if(!mAdapter.getTab(position).getTitle().isEmpty())
-			mActionBar.setTitle(mAdapter.getTab(position).getTitle());
+		ActionBarTab tab = mAdapter.getTab(position);
+		if(!tab.getTitle().isEmpty())
+			mActionBar.setTitle(tab.getTitle());
+		tab.updateContent();
 	}
 }
