@@ -2,7 +2,7 @@
 /*******************************
  * ActionBarTab
  *******************************/
-package poisondog.android.tab;
+package poisondog.android.view.tab;
 
 import android.support.v4.app.Fragment;
 /**

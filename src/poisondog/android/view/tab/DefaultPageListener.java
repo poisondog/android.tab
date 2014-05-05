@@ -2,7 +2,7 @@
  * Class Name : DefaultPageListener
  * Create Time : 2014-04-20
  *******************************/
-package poisondog.android.tab;
+package poisondog.android.view.tab;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;

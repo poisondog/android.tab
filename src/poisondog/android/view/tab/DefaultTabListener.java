@@ -2,7 +2,7 @@
  * Class Name : DefaultTabListener
  * Create Time : 2014-04-20
  *******************************/
-package poisondog.android.tab;
+package poisondog.android.view.tab;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;

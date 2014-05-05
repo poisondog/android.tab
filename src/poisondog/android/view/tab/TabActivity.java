@@ -2,7 +2,7 @@
  * Class Name : TabActivity
  * Create Time : 2014-04-20
  *******************************/
-package poisondog.android.tab;
+package poisondog.android.view.tab;
 
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;

@@ -2,7 +2,7 @@
  * Class Name : TabAdapter
  * Create Time : 2014-04-20
  *******************************/
-package poisondog.android.tab;
+package poisondog.android.view.tab;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
