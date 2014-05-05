@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2014 Adam Huang
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 /**
- * @author poisondog <poisondog@gmail.com>
+ * @author Adam Huang <poisondog@gmail.com>
  */
 public class TabActivity extends ActionBarActivity {
 	private int mMenuResourceID;
