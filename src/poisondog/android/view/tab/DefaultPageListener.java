@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*******************************
- * Class Name : DefaultPageListener
- * Create Time : 2014-04-20
- *******************************/
 package poisondog.android.view.tab;
 
 import android.support.v4.view.ViewPager;

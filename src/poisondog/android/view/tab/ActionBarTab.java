@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*******************************
- * ActionBarTab
- * Create Time : 2014-01-14
- *******************************/
 package poisondog.android.view.tab;
 
 import android.support.v4.app.Fragment;

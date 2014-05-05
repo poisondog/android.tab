@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*******************************
- * Class Name : TabActivity
- * Create Time : 2014-04-20
- *******************************/
 package poisondog.android.view.tab;
 
 import android.support.v7.app.ActionBarActivity;
