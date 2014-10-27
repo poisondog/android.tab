@@ -34,6 +34,7 @@ public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
 	@Override
 	public void onPageScrolled (int position, float positionOffset, int positionOffsetPixels){
 		mActivity.setMenuResourceID(mAdapter.getTab(position).getMenuResourceID());
+		mActivity.supportInvalidateOptionsMenu();
 	}
 
 	@Override
@@ -47,6 +48,5 @@ public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
 
 	@Override
 	public void onPageScrollStateChanged (int state) {
-		mActivity.supportInvalidateOptionsMenu();
 	}
 }
