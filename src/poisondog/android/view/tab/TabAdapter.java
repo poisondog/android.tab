@@ -47,6 +47,10 @@ public class TabAdapter extends FragmentPagerAdapter {
 		mActionBar.addTab(instance);
 	}
 
+	public void clear() {
+		mTabs.clear();
+	}
+
 	public ActionBarTab getTab(int position) {
 		return mTabs.get(position);
 	}
