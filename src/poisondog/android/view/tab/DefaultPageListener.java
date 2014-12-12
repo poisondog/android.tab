@@ -43,7 +43,7 @@ public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
 		ActionBarTab tab = mAdapter.getTab(position);
 		if(!tab.getTitle().isEmpty())
 			mActionBar.setTitle(tab.getTitle());
-		tab.updateContent();
+//		tab.updateContent();
 	}
 
 	@Override

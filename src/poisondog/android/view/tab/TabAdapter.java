@@ -17,6 +17,7 @@ package poisondog.android.view.tab;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
-public class TabAdapter extends FragmentPagerAdapter {
+public class TabAdapter extends FragmentStatePagerAdapter {
 	private List<ActionBarTab> mTabs;
 	private ActionBar mActionBar;
 
