@@ -25,149 +25,132 @@ import android.view.Menu;
  */
 public class DebugActivity extends ActionBarActivity {
 
-	public void printClassName() {
+	public void printClassMethodName() {
 		System.out.println("Class name :: " + getClass().getSimpleName());
+		Exception e = new Exception();
+		e.fillInStackTrace();
+		System.out.println("Method name :: " + e.getStackTrace()[1].getMethodName());
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		printClassName();
-		System.out.println("Method name :: onCreate");
+		printClassMethodName();
 	}
 
 	@Override
 	public void onAttachFragment(Fragment fragment) {
 		super.onAttachFragment(fragment);
-		printClassName();
-		System.out.println("Method name :: onAttachFragment");
+		printClassMethodName();
 	}
 
 	@Override
 	public void onContentChanged() {
 		super.onContentChanged();
-		printClassName();
-		System.out.println("Method name :: onContentChanged");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		printClassName();
-		System.out.println("Method name :: onStart");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onRestart() {
 		super.onRestart();
-		printClassName();
-		System.out.println("Method name :: onRestart");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		printClassName();
-		System.out.println("Method name :: onActivityResult");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
-		printClassName();
-		System.out.println("Method name :: onRestoreInstanceState");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-		printClassName();
-		System.out.println("Method name :: onPostCreate");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		printClassName();
-		System.out.println("Method name :: onResume");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onPostResume() {
 		super.onPostResume();
-		printClassName();
-		System.out.println("Method name :: onPostResume");
+		printClassMethodName();
 	}
 
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
-		printClassName();
-		System.out.println("Method name :: onAttachedToWindow");
+		printClassMethodName();
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean result = super.onCreateOptionsMenu(menu);
-		printClassName();
-		System.out.println("Method name :: onCreateOptionsMenu");
+		printClassMethodName();
 		return result;
 	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		boolean result = super.onPrepareOptionsMenu(menu);
-		printClassName();
-		System.out.println("Method name :: onPrepareOptionsMenu");
+		printClassMethodName();
 		return result;
 	}
 
 	@Override
 	public void onUserInteraction() {
 		super.onUserInteraction();
-		printClassName();
-		System.out.println("Method name :: onUserInteraction");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onUserLeaveHint() {
 		super.onUserLeaveHint();
-		printClassName();
-		System.out.println("Method name :: onUserLeaveHint");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		printClassName();
-		System.out.println("Method name :: onPause");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		printClassName();
-		System.out.println("Method name :: onSaveInstanceState");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		printClassName();
-		System.out.println("Method name :: onStop");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		printClassName();
-		System.out.println("Method name :: onDestroy");
+		printClassMethodName();
 	}
 
 	@Override
 	protected void onTitleChanged(CharSequence title, int color) {
 		super.onTitleChanged(title, color);
-		printClassName();
-		System.out.println("Method name :: onTitleChanged");
+		printClassMethodName();
 	}
 }

@@ -18,10 +18,11 @@ package poisondog.android.view.tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import poisondog.android.app.DebugActivity;
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
-public class TabActivity extends ActionBarActivity {
+public class TabActivity extends DebugActivity {
 	private int mMenuResourceID;
 
 	public void setMenuResourceID(int id) {

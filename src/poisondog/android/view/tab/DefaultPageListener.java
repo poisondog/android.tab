@@ -44,6 +44,8 @@ public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
 		if(!tab.getTitle().isEmpty())
 			mActionBar.setTitle(tab.getTitle());
 //		tab.updateContent();
+		if(mAdapter != null)
+			mAdapter.notifyDataSetChanged();
 	}
 
 	@Override
