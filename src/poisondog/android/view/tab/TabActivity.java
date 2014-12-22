@@ -22,7 +22,7 @@ import poisondog.android.app.DebugActivity;
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
-public class TabActivity extends DebugActivity {
+public class TabActivity extends ActionBarActivity {
 	private int mMenuResourceID;
 
 	public void setMenuResourceID(int id) {
