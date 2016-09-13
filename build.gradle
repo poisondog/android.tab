@@ -1,5 +1,7 @@
+project.group = 'poisondog'
+project.version = '0.0.1'
+
 //walton mvn server setting
-apply from: 'mvn.gradle'
 buildscript {
 	repositories {
 		jcenter()
@@ -15,6 +17,13 @@ apply plugin: 'com.android.library'
 android {
 	compileSdkVersion 22
 	buildToolsVersion "22.0.1"
+	defaultConfig {
+		versionCode 1
+		versionName project.version
+		minSdkVersion 14
+		targetSdkVersion 17
+		multiDexEnabled = true
+	}
 	lintOptions {
 		abortOnError false
 	}
@@ -22,6 +31,7 @@ android {
 
 dependencies {
 	compile 'com.android.support:appcompat-v7:21.0.+'
-	compile project(':android.app')
+	compile 'poisondog:poisondog.android.app:0.0.9'
 }
 
+apply from: 'repositories.gradle'
