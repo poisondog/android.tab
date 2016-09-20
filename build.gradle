@@ -31,7 +31,7 @@ android {
 
 dependencies {
 	compile 'com.android.support:appcompat-v7:21.0.+'
-	compile 'poisondog:poisondog.android.app:0.0.9'
+	compile project(':android.app')
 }
 
 apply from: 'repositories.gradle'
