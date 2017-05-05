@@ -56,11 +56,8 @@ public class TabPagerAdapter extends PagerAdapter {
 
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
-		View view = mList.get(position).getView();
-//		View view = getLayoutInflater().inflate(R.layout.pager_item, container, false);
+		View view = mList.get(position).getContent();
 		container.addView(view);
-//		TextView title = (TextView) view.findViewById(R.id.item_title);
-//		title.setText(String.valueOf(position + 1));
 		return view;
 	}
 

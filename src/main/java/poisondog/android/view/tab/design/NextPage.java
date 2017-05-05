@@ -15,13 +15,20 @@
  */
 package poisondog.android.view.tab.design;
 
-import android.view.View;
+import poisondog.core.Mission;
 
 /**
  * @author Adam Huang
- * @since 2017-04-19
+ * @since 2017-04-27
  */
-public interface Tab {
-	public CharSequence getTitle();
-	public View getContent();
+public class NextPage implements Mission<TabView> {
+
+	@Override
+	public TabView execute(TabView tab) {
+		int size = tab.getCount();
+		int current = tab.getCurrentIndex();
+		tab.setCurrentIndex((current + 1) % size);
+		return tab;
+
+	}
 }

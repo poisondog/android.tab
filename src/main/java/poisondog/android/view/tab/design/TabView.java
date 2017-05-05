@@ -28,7 +28,7 @@ import android.util.AttributeSet;
  * @since 2017-04-19
  */
 public class TabView extends LinearLayout {
-	private TabLayout mTabs;
+	private TabLayout mTabLayout;
 	private ViewPager mViewPager;
 
 	/**
@@ -49,17 +49,35 @@ public class TabView extends LinearLayout {
 
 	private void init(Context context) {
 		setOrientation(VERTICAL);
-		mTabs = new TabLayout(context);
+		mTabLayout = new TabLayout(context);
 		mViewPager = new ViewPager(context);
-		mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabs));
-		addView(mTabs);
+		mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+		addView(mTabLayout);
 		addView(mViewPager);
+		mTabLayout.setupWithViewPager(mViewPager);
 	}
 
 	public void setAdapter(PagerAdapter adapter) {
 		for (int i = 0; i < adapter.getCount(); i++) {
-			mTabs.addTab(mTabs.newTab().setText(adapter.getPageTitle(i)));
+			mTabLayout.addTab(mTabLayout.newTab().setText(adapter.getPageTitle(i)));
 		}
 		mViewPager.setAdapter(adapter);
 	}
+
+	public int getCount() {
+		return mViewPager.getAdapter().getCount();
+	}
+
+	public int getCurrentIndex(){
+		return mViewPager.getCurrentItem();
+	}
+
+	public void setCurrentIndex(int index) {
+		mViewPager.setCurrentItem(index);
+	}
+
+	public void addOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
+		mViewPager.addOnPageChangeListener(listener);
+	}
+
 }

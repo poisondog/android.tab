@@ -13,15 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android.view.tab.design;
+package poisondog.android.view.tab.support;
 
+import android.support.v4.app.Fragment;
 import android.view.View;
 
 /**
  * @author Adam Huang
- * @since 2017-04-19
+ * @since 2017-04-27
  */
 public interface Tab {
-	public CharSequence getTitle();
-	public View getContent();
+	public View getTitle();
+	public Fragment getContent();
 }
