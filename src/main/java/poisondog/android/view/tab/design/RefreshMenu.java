@@ -15,28 +15,34 @@
  */
 package poisondog.android.view.tab.design;
 
-import poisondog.core.Mission;
+import android.app.Activity;
+import android.support.v4.view.ViewPager;
 
 /**
  * @author Adam Huang
- * @since 2017-04-27
+ * @since 2017-05-08
  */
-public class NextPage implements Mission<Object> {
-	private TabView mTabView;
+public class RefreshMenu implements ViewPager.OnPageChangeListener {
+	private Activity mContext;
 
 	/**
 	 * Constructor
 	 */
-	public NextPage(TabView tab) {
-		mTabView = tab;
+	public RefreshMenu(Activity context) {
+		mContext = context;
 	}
 
 	@Override
-	public Object execute(Object input) {
-		int size = mTabView.getCount();
-		int current = mTabView.getCurrentIndex();
-		mTabView.setCurrentIndex((current + 1) % size);
-		return input;
-
+	public void onPageScrollStateChanged(int state) {
 	}
+
+	@Override
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+	}
+
+	@Override
+	public void onPageSelected(int position) {
+		mContext.invalidateOptionsMenu();
+	}
+
 }

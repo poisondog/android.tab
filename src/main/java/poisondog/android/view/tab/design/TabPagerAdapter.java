@@ -39,6 +39,10 @@ public class TabPagerAdapter extends PagerAdapter {
 		mList.add(tab);
 	}
 
+	public Tab get(int index) {
+		return mList.get(index);
+	}
+
 	@Override
 	public int getCount() {
 		return mList.size();
