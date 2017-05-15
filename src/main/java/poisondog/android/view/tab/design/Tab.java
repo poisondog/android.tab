@@ -23,5 +23,6 @@ import android.view.View;
  */
 public interface Tab {
 	public CharSequence getTitle();
+	public View getTitleView();
 	public View getContent();
 }

@@ -19,9 +19,9 @@ import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.util.AttributeSet;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * @author Adam Huang
@@ -58,10 +58,14 @@ public class TabView extends LinearLayout {
 	}
 
 	public void setAdapter(PagerAdapter adapter) {
-		for (int i = 0; i < adapter.getCount(); i++) {
-			mTabLayout.addTab(mTabLayout.newTab().setText(adapter.getPageTitle(i)));
-		}
 		mViewPager.setAdapter(adapter);
+		if (!(adapter instanceof TabPagerAdapter))
+			return;
+		TabPagerAdapter tpa = (TabPagerAdapter) adapter;
+		for (int i = 0; i < tpa.getCount(); i++) {
+//			mTabLayout.addTab(mTabLayout.newTab().setText(tpa.getPageTitle(i)));
+			mTabLayout.getTabAt(i).setCustomView(tpa.get(i).getTitleView());
+		}
 	}
 
 	public int getCount() {
