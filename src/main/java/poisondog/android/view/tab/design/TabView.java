@@ -20,8 +20,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import poisondog.android.tab.R;
 
 /**
  * @author Adam Huang
@@ -30,6 +32,7 @@ import android.widget.TextView;
 public class TabView extends LinearLayout {
 	private TabLayout mTabLayout;
 	private ViewPager mViewPager;
+	private View mRoot;
 
 	/**
 	 * Constructor
@@ -47,14 +50,32 @@ public class TabView extends LinearLayout {
 		init(context);
 	}
 
+	public void setTabTop(boolean flag) {
+		LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		if (flag) {
+			mRoot = inflater.inflate(R.layout.tab_top, null, false);
+		} else {
+			mRoot = inflater.inflate(R.layout.tab_bottom, null, false);
+		}
+		update();
+	}
+
+	public void setSelectedTabIndicatorHeight(int height) {
+		mTabLayout.setSelectedTabIndicatorHeight(height);
+	}
+
 	private void init(Context context) {
-		setOrientation(VERTICAL);
-		mTabLayout = new TabLayout(context);
-		mViewPager = new ViewPager(context);
+		setTabTop(true);
+		update();
+	}
+
+	private void update() {
+		removeAllViews();
+		mTabLayout = (TabLayout) mRoot.findViewById(R.id.sliding_tabs);
+		mViewPager = (ViewPager) mRoot.findViewById(R.id.tab_pager);
 		mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-		addView(mTabLayout);
-		addView(mViewPager);
 		mTabLayout.setupWithViewPager(mViewPager);
+		addView(mRoot);
 	}
 
 	public void setAdapter(PagerAdapter adapter) {
