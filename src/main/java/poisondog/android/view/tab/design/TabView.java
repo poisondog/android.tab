@@ -64,6 +64,13 @@ public class TabView extends LinearLayout {
 		mTabLayout.setSelectedTabIndicatorHeight(height);
 	}
 
+	public void setTabVisibility(boolean flag) {
+		if (flag)
+			mTabLayout.setVisibility(View.VISIBLE);
+		else
+			mTabLayout.setVisibility(View.GONE);
+	}
+
 	private void init(Context context) {
 		setTabTop(true);
 		update();
