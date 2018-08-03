@@ -13,28 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android.view.tab;
-
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import poisondog.android.app.DebugActivity;
-/**
- * @author Adam Huang <poisondog@gmail.com>
- */
-public class TabActivity extends DebugActivity {
-	private int mMenuResourceID;
-
-	public void setMenuResourceID(int id) {
-		mMenuResourceID = id;
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		if(mMenuResourceID > 0) {
-			MenuInflater inflater = getMenuInflater();
-			inflater.inflate(mMenuResourceID, menu);
-		}
-		return super.onCreateOptionsMenu(menu);
-	}
-}
+//package poisondog.android.view.tab;
+//
+//import android.support.v7.app.ActionBarActivity;
+//import android.view.Menu;
+//import android.view.MenuInflater;
+//import poisondog.android.app.DebugActivity;
+///**
+//// TODO delete it
+// * @author Adam Huang <poisondog@gmail.com>
+// */
+//public class TabActivity extends DebugActivity {
+//	private int mMenuResourceID;
+//
+//	public void setMenuResourceID(int id) {
+//		mMenuResourceID = id;
+//	}
+//
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		if(mMenuResourceID > 0) {
+//			MenuInflater inflater = getMenuInflater();
+//			inflater.inflate(mMenuResourceID, menu);
+//		}
+//		return super.onCreateOptionsMenu(menu);
+//	}
+//}

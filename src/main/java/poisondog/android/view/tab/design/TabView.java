@@ -24,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import poisondog.android.tab.R;
+import poisondog.core.NoMission;
+import poisondog.core.Mission;
 
 /**
  * @author Adam Huang
@@ -33,6 +35,8 @@ public class TabView extends LinearLayout {
 	private TabLayout mTabLayout;
 	private ViewPager mViewPager;
 	private View mRoot;
+	private Mission<TabLayout.Tab> mTabSelectedHandler;
+	private Mission<TabLayout.Tab> mTabUnselectedHandler;
 
 	/**
 	 * Constructor
@@ -73,7 +77,17 @@ public class TabView extends LinearLayout {
 
 	private void init(Context context) {
 		setTabTop(true);
+		mTabSelectedHandler = new NoMission<>();
+		mTabUnselectedHandler = new NoMission<>();
 		update();
+	}
+
+	public void setTabSelectedHandler(Mission<TabLayout.Tab> handler) {
+		mTabSelectedHandler = handler;
+	}
+
+	public void setTabUnselectedHandler(Mission<TabLayout.Tab> handler) {
+		mTabUnselectedHandler = handler;
 	}
 
 	private void update() {
@@ -83,6 +97,31 @@ public class TabView extends LinearLayout {
 		mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
 		mTabLayout.setupWithViewPager(mViewPager);
 		addView(mRoot);
+
+		mTabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
+			@Override
+			public void onTabSelected(TabLayout.Tab tab) {
+				super.onTabSelected(tab);
+				try {
+					mTabSelectedHandler.execute(tab);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			@Override
+			public void onTabUnselected(TabLayout.Tab tab) {
+				super.onTabUnselected(tab);
+				try {
+					mTabUnselectedHandler.execute(tab);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			@Override
+			public void onTabReselected(TabLayout.Tab tab) {
+				super.onTabReselected(tab);
+			}
+		});
 	}
 
 	public void setAdapter(PagerAdapter adapter) {

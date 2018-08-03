@@ -1,7 +1,13 @@
 project.group = 'poisondog'
 project.version = '1.0.0'
 
-apply from: 'repositories.gradle'
+repositories {
+	jcenter()
+	maven {
+		url "https://dl.bintray.com/poisondog/poisondog/"
+	}
+}
+
 buildscript {
 	repositories {
 		jcenter()

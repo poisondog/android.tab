@@ -13,61 +13,62 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android.view.tab;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import java.util.ArrayList;
-import java.util.List;
-/**
- * @author Adam Huang <poisondog@gmail.com>
- */
-public class TabAdapter extends FragmentStatePagerAdapter {
-	private List<ActionBarTab> mTabs;
-	private ActionBar mActionBar;
-
-	public TabAdapter(final ActionBarActivity activity) {
-		super(activity.getSupportFragmentManager());
-		mActionBar = activity.getSupportActionBar();
-
-		mTabs = new ArrayList<ActionBarTab>();
-		mActionBar.removeAllTabs();
-	}
-
-	public void add(ActionBarTab tab, ActionBar.TabListener listener) {
-		mTabs.add(tab);
-		ActionBar.Tab instance = mActionBar.newTab();
-		if(tab.getIconResourceID() > 0)
-			instance.setIcon(tab.getIconResourceID());
-		if(!tab.getText().isEmpty())
-			instance.setText(tab.getText());
-		instance.setTabListener(listener);
-		mActionBar.addTab(instance);
-	}
-
-	public void clear() {
-		mTabs.clear();
-	}
-
-	public ActionBarTab getTab(int position) {
-		return mTabs.get(position);
-	}
-
-	@Override
-	public int getCount() {
-		return mTabs.size();
-	}
-
-	@Override
-	public Fragment getItem(int position) {
-		return mTabs.get(position).createFragment();
-	}
-
-	@Override
-	public int getItemPosition(Object object) {
-		return POSITION_NONE;
-	}
-}
+//package poisondog.android.view.tab;
+//
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentPagerAdapter;
+//import android.support.v4.app.FragmentStatePagerAdapter;
+//import android.support.v7.app.ActionBar;
+//import android.support.v7.app.ActionBarActivity;
+//import java.util.ArrayList;
+//import java.util.List;
+///**
+//// TODO delete it
+// * @author Adam Huang <poisondog@gmail.com>
+// */
+//public class TabAdapter extends FragmentStatePagerAdapter {
+//	private List<ActionBarTab> mTabs;
+//	private ActionBar mActionBar;
+//
+//	public TabAdapter(final ActionBarActivity activity) {
+//		super(activity.getSupportFragmentManager());
+//		mActionBar = activity.getSupportActionBar();
+//
+//		mTabs = new ArrayList<ActionBarTab>();
+//		mActionBar.removeAllTabs();
+//	}
+//
+//	public void add(ActionBarTab tab, ActionBar.TabListener listener) {
+//		mTabs.add(tab);
+//		ActionBar.Tab instance = mActionBar.newTab();
+//		if(tab.getIconResourceID() > 0)
+//			instance.setIcon(tab.getIconResourceID());
+//		if(!tab.getText().isEmpty())
+//			instance.setText(tab.getText());
+//		instance.setTabListener(listener);
+//		mActionBar.addTab(instance);
+//	}
+//
+//	public void clear() {
+//		mTabs.clear();
+//	}
+//
+//	public ActionBarTab getTab(int position) {
+//		return mTabs.get(position);
+//	}
+//
+//	@Override
+//	public int getCount() {
+//		return mTabs.size();
+//	}
+//
+//	@Override
+//	public Fragment getItem(int position) {
+//		return mTabs.get(position).createFragment();
+//	}
+//
+//	@Override
+//	public int getItemPosition(Object object) {
+//		return POSITION_NONE;
+//	}
+//}

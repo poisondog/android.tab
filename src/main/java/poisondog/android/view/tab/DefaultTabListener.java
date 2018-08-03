@@ -13,31 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android.view.tab;
-
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-/**
- * @author Adam Huang <poisondog@gmail.com>
- */
-public class DefaultTabListener implements ActionBar.TabListener {
-	private ViewPager mPager;
-
-	public DefaultTabListener(ViewPager pager) {
-		mPager = pager;
-	}
-
-	@Override
-	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-		mPager.setCurrentItem(tab.getPosition());
-	}
-
-	@Override
-	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-	}
-
-	@Override
-	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-	}
-}
+//package poisondog.android.view.tab;
+//
+//import android.support.v4.app.FragmentTransaction;
+//import android.support.v4.view.ViewPager;
+//import android.support.v7.app.ActionBar;
+///**
+//// TODO delete it
+// * @author Adam Huang <poisondog@gmail.com>
+// */
+//public class DefaultTabListener implements ActionBar.TabListener {
+//	private ViewPager mPager;
+//
+//	public DefaultTabListener(ViewPager pager) {
+//		mPager = pager;
+//	}
+//
+//	@Override
+//	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+//		mPager.setCurrentItem(tab.getPosition());
+//	}
+//
+//	@Override
+//	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+//	}
+//
+//	@Override
+//	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+//	}
+//}

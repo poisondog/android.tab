@@ -13,43 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android.view.tab;
-
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-/**
- * @author Adam Huang <poisondog@gmail.com>
- */
-public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
-	private TabActivity mActivity;
-	private TabAdapter mAdapter;
-	private ActionBar mActionBar;
-
-	public DefaultPageListener(TabActivity activity, TabAdapter adapter) {
-		mActivity = activity;
-		mAdapter = adapter;
-		mActionBar = activity.getSupportActionBar();
-	}
-
-	@Override
-	public void onPageScrolled (int position, float positionOffset, int positionOffsetPixels){
-		if(mAdapter.getCount() > 0)
-			mActivity.setMenuResourceID(mAdapter.getTab(position).getMenuResourceID());
-		mActivity.supportInvalidateOptionsMenu();
-	}
-
-	@Override
-	public void onPageSelected (int position) {
-		mActionBar.setSelectedNavigationItem(position);
-		ActionBarTab tab = mAdapter.getTab(position);
-		if(!tab.getTitle().isEmpty())
-			mActionBar.setTitle(tab.getTitle());
-//		tab.updateContent();
-		if(mAdapter != null)
-			mAdapter.notifyDataSetChanged();
-	}
-
-	@Override
-	public void onPageScrollStateChanged (int state) {
-	}
-}
+//package poisondog.android.view.tab;
+//
+//import android.support.v4.view.ViewPager;
+//import android.support.v7.app.ActionBar;
+///**
+//// TODO delete it
+// * @author Adam Huang <poisondog@gmail.com>
+// */
+//public class DefaultPageListener extends ViewPager.SimpleOnPageChangeListener {
+//	private TabActivity mActivity;
+//	private TabAdapter mAdapter;
+//	private ActionBar mActionBar;
+//
+//	public DefaultPageListener(TabActivity activity, TabAdapter adapter) {
+//		mActivity = activity;
+//		mAdapter = adapter;
+//		mActionBar = activity.getSupportActionBar();
+//	}
+//
+//	@Override
+//	public void onPageScrolled (int position, float positionOffset, int positionOffsetPixels){
+//		if(mAdapter.getCount() > 0)
+//			mActivity.setMenuResourceID(mAdapter.getTab(position).getMenuResourceID());
+//		mActivity.supportInvalidateOptionsMenu();
+//	}
+//
+//	@Override
+//	public void onPageSelected (int position) {
+//		mActionBar.setSelectedNavigationItem(position);
+//		ActionBarTab tab = mAdapter.getTab(position);
+//		if(!tab.getTitle().isEmpty())
+//			mActionBar.setTitle(tab.getTitle());
+////		tab.updateContent();
+//		if(mAdapter != null)
+//			mAdapter.notifyDataSetChanged();
+//	}
+//
+//	@Override
+//	public void onPageScrollStateChanged (int state) {
+//	}
+//}

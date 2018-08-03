@@ -13,17 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android.view.tab;
-
-import android.support.v4.app.Fragment;
-/**
- * @author Adam Huang <poisondog@gmail.com>
- */
-public interface ActionBarTab {
-	public Fragment createFragment();
-	public int getMenuResourceID();
-	public int getIconResourceID();
-	public String getText();
-	public String getTitle();
-	public void updateContent();
-}
+//package poisondog.android.view.tab;
+//
+//import android.support.v4.app.Fragment;
+///**
+//// TODO delete it
+// * @author Adam Huang <poisondog@gmail.com>
+// */
+//public interface ActionBarTab {
+//	public Fragment createFragment();
+//	public int getMenuResourceID();
+//	public int getIconResourceID();
+//	public String getText();
+//	public String getTitle();
+//	public void updateContent();
+//}

@@ -2,11 +2,12 @@ package poisondog.android;
 
 import android.app.Activity;
 import android.os.Bundle;
-import poisondog.android.view.tab.design.TabView;
-import poisondog.android.view.tab.design.TabPagerAdapter;
-import poisondog.android.view.tab.design.NextPage;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.widget.LinearLayout;
+import android.view.View;
+import poisondog.android.view.tab.design.TabPagerAdapter;
+import poisondog.android.view.tab.design.TabView;
+import poisondog.core.Mission;
 
 public class Hello extends Activity {
 	/** Called when the activity is first created. */
@@ -16,6 +17,25 @@ public class Hello extends Activity {
 		this.setContentView(R.layout.main);
 
 		final TabView tab = (TabView)findViewById(R.id.tab);
+//		tab.setSelectedTabIndicatorHeight(0);
+		tab.setTabSelectedHandler(new Mission<TabLayout.Tab>() {
+			@Override
+			public Void execute(TabLayout.Tab tab) {
+				View tabView = tab.getCustomView();
+				if (tabView != null)
+					tabView.setBackgroundColor(0xFF00FF00);
+				return null;
+			}
+		});
+		tab.setTabUnselectedHandler(new Mission<TabLayout.Tab>() {
+			@Override
+			public Void execute(TabLayout.Tab tab) {
+				View tabView = tab.getCustomView();
+				if (tabView != null)
+					tabView.setBackgroundColor(0x00000000);
+				return null;
+			}
+		});
 
 		tab.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override

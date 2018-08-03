@@ -17,5 +17,3 @@ include 'api'
 include 'services:webservice'
 */
 
-include ':android.app'
-project(':android.app').projectDir = new File('../android.app/')
