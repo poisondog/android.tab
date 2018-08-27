@@ -21,11 +21,12 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import poisondog.android.tab.R;
-import poisondog.core.NoMission;
 import poisondog.core.Mission;
+import poisondog.core.NoMission;
 
 /**
  * @author Adam Huang
@@ -33,7 +34,7 @@ import poisondog.core.Mission;
  */
 public class TabView extends LinearLayout {
 	private TabLayout mTabLayout;
-	private ViewPager mViewPager;
+	private MyViewPager mViewPager;
 	private View mRoot;
 	private Mission<TabLayout.Tab> mTabSelectedHandler;
 	private Mission<TabLayout.Tab> mTabUnselectedHandler;
@@ -69,10 +70,13 @@ public class TabView extends LinearLayout {
 	}
 
 	public void setTabVisibility(boolean flag) {
-		if (flag)
+		if (flag) {
 			mTabLayout.setVisibility(View.VISIBLE);
-		else
+			mViewPager.enableSwipe(true);
+		} else {
 			mTabLayout.setVisibility(View.GONE);
+			mViewPager.enableSwipe(false);
+		}
 	}
 
 	private void init(Context context) {
@@ -93,7 +97,7 @@ public class TabView extends LinearLayout {
 	private void update() {
 		removeAllViews();
 		mTabLayout = (TabLayout) mRoot.findViewById(R.id.sliding_tabs);
-		mViewPager = (ViewPager) mRoot.findViewById(R.id.tab_pager);
+		mViewPager = (MyViewPager) mRoot.findViewById(R.id.tab_pager);
 		mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
 		mTabLayout.setupWithViewPager(mViewPager);
 		addView(mRoot);

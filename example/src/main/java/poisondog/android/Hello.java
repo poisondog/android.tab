@@ -5,18 +5,29 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Button;
 import poisondog.android.view.tab.design.TabPagerAdapter;
 import poisondog.android.view.tab.design.TabView;
 import poisondog.core.Mission;
 
 public class Hello extends Activity {
-	/** Called when the activity is first created. */
+	private boolean mFlag = true;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.main);
 
 		final TabView tab = (TabView)findViewById(R.id.tab);
+		Button button = (Button)findViewById(R.id.b1);
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mFlag = !mFlag;
+				tab.setTabVisibility(mFlag);
+			}
+		});
+
 //		tab.setSelectedTabIndicatorHeight(0);
 		tab.setTabSelectedHandler(new Mission<TabLayout.Tab>() {
 			@Override

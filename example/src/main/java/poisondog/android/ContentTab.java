@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import poisondog.android.view.tab.design.Tab;
+import android.widget.LinearLayout;
 
 /**
  * @author Adam Huang
@@ -42,7 +43,28 @@ public class ContentTab implements Tab {
 
 	@Override
 	public View getContent() {
-		return mInflater.inflate(R.layout.content, null);
+		View root = mInflater.inflate(R.layout.content, null);
+		LinearLayout layout = (LinearLayout)root.findViewById(R.id.linear);
+
+		for (int i = 0; i < 100; i++) {
+			TextView text = new TextView(mInflater.getContext());
+			text.setText("item: " + i);
+			text.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					System.out.println("Hi");
+				}
+			});
+			layout.addView(text);
+		}
+		TextView text = (TextView)root.findViewById(R.id.item_subtitle);
+		text.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				System.out.println("Hi HI");
+			}
+		});
+		return root;
 	}
 
 	@Override
