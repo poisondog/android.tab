@@ -21,7 +21,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import poisondog.android.tab.R;
@@ -153,6 +152,10 @@ public class TabView extends LinearLayout {
 
 	public void addOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
 		mViewPager.addOnPageChangeListener(listener);
+	}
+
+	public void enableSwipe(boolean flag) {
+		mViewPager.enableSwipe(flag);
 	}
 
 }

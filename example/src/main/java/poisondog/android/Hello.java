@@ -19,6 +19,7 @@ public class Hello extends Activity {
 		this.setContentView(R.layout.main);
 
 		final TabView tab = (TabView)findViewById(R.id.tab);
+//		tab.enableSwipe(false);
 		Button button = (Button)findViewById(R.id.b1);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
