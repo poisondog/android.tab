@@ -54,6 +54,13 @@ public class TabView extends LinearLayout {
 		init(context);
 	}
 
+	private void init(Context context) {
+		setTabTop(true);
+		mTabSelectedHandler = new NoMission<>();
+		mTabUnselectedHandler = new NoMission<>();
+		update();
+	}
+
 	public void setTabTop(boolean flag) {
 		LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (flag) {
@@ -76,13 +83,6 @@ public class TabView extends LinearLayout {
 			mTabLayout.setVisibility(View.GONE);
 			mViewPager.enableSwipe(false);
 		}
-	}
-
-	private void init(Context context) {
-		setTabTop(true);
-		mTabSelectedHandler = new NoMission<>();
-		mTabUnselectedHandler = new NoMission<>();
-		update();
 	}
 
 	public void setTabSelectedHandler(Mission<TabLayout.Tab> handler) {
@@ -148,6 +148,10 @@ public class TabView extends LinearLayout {
 
 	public void setCurrentIndex(int index) {
 		mViewPager.setCurrentItem(index);
+	}
+
+	public TabLayout getTabLayout() {
+		return mTabLayout;
 	}
 
 	public void addOnPageChangeListener(ViewPager.OnPageChangeListener listener) {

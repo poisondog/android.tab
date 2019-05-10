@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.android;
+package poisondog.android.view.tab.app;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import poisondog.android.view.tab.design.Tab;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import java.util.Random;
+import poisondog.android.view.tab.design.Tab;
 
 /**
  * @author Adam Huang
@@ -46,7 +47,8 @@ public class ContentTab implements Tab {
 		View root = mInflater.inflate(R.layout.content, null);
 		LinearLayout layout = (LinearLayout)root.findViewById(R.id.linear);
 
-		for (int i = 0; i < 100; i++) {
+		Random random = new Random();
+		for (int i = 0; i < random.nextInt(100); i++) {
 			TextView text = new TextView(mInflater.getContext());
 			text.setText("item: " + i);
 			text.setOnClickListener(new View.OnClickListener() {

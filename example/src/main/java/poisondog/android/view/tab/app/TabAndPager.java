@@ -1,4 +1,4 @@
-package poisondog.android;
+package poisondog.android.view.tab.app;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,28 +9,31 @@ import android.widget.Button;
 import poisondog.android.view.tab.design.TabPagerAdapter;
 import poisondog.android.view.tab.design.TabView;
 import poisondog.core.Mission;
+import android.view.ViewGroup;
 
-public class Hello extends Activity {
+
+public class TabAndPager extends Activity {
 	private boolean mFlag = true;
+	private TabView mTabView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.main);
+		this.setContentView(R.layout.with_tab_pager);
 
-		final TabView tab = (TabView)findViewById(R.id.tab);
-//		tab.enableSwipe(false);
+		mTabView = (TabView)findViewById(R.id.tab);
+//		mTabView.enableSwipe(false);
 		Button button = (Button)findViewById(R.id.b1);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				mFlag = !mFlag;
-				tab.setTabVisibility(mFlag);
+				mTabView.setTabVisibility(mFlag);
 			}
 		});
 
-//		tab.setSelectedTabIndicatorHeight(0);
-		tab.setTabSelectedHandler(new Mission<TabLayout.Tab>() {
+//		mTabView.setSelectedTabIndicatorHeight(0);
+		mTabView.setTabSelectedHandler(new Mission<TabLayout.Tab>() {
 			@Override
 			public Void execute(TabLayout.Tab tab) {
 				View tabView = tab.getCustomView();
@@ -39,7 +42,7 @@ public class Hello extends Activity {
 				return null;
 			}
 		});
-		tab.setTabUnselectedHandler(new Mission<TabLayout.Tab>() {
+		mTabView.setTabUnselectedHandler(new Mission<TabLayout.Tab>() {
 			@Override
 			public Void execute(TabLayout.Tab tab) {
 				View tabView = tab.getCustomView();
@@ -49,7 +52,7 @@ public class Hello extends Activity {
 			}
 		});
 
-		tab.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+		mTabView.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
 			public void onPageScrollStateChanged(int state) {
 				System.out.println("onPageScrollStateChanged");
@@ -68,7 +71,10 @@ public class Hello extends Activity {
 		adapter.add(new ContentTab(getLayoutInflater()));
 		adapter.add(new ContentTab(getLayoutInflater()));
 		adapter.add(new ContentTab(getLayoutInflater()));
-		tab.setAdapter(adapter);
+		mTabView.setAdapter(adapter);
+
+		TabLayout.Tab tabItem = mTabView.getTabLayout().getTabAt(1);
+		tabItem.getCustomView().setEnabled(false);
 
 	}
 }
