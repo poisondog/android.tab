@@ -31,6 +31,7 @@ public class MyTabLayout extends LinearLayout {
 	private Mission<View> mTabUnselectedHandler;
 	private Mission<View> mSelectHandler;
 	private Mission<Integer> mHook;
+	private int mCurrentIndex;
 
 	/**
 	 * Constructor
@@ -70,6 +71,10 @@ public class MyTabLayout extends LinearLayout {
 		return getChildAt(index);
 	}
 
+	public int getCurrentIndex() {
+		return mCurrentIndex;
+	}
+
 	public Mission<Integer> getHook() {
 		return new Hook();
 	}
@@ -96,8 +101,10 @@ public class MyTabLayout extends LinearLayout {
 			try {
 				for(int i = 0; i < getChildCount(); i++) {
 					View temp = getChildAt(i);
-					if (temp == v)
+					if (temp == v) {
+						mCurrentIndex = i;
 						continue;
+					}
 					mTabUnselectedHandler.execute(temp);
 				}
 				mTabSelectedHandler.execute(v);
