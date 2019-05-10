@@ -79,6 +79,14 @@ public class MyTabLayout extends LinearLayout {
 		return new Hook();
 	}
 
+	public void setTabVisibility(boolean flag) {
+		if (flag) {
+			setVisibility(View.VISIBLE);
+		} else {
+			setVisibility(View.GONE);
+		}
+	}
+
 	public void setTabSelectedHandler(Mission<View> handler) {
 		mTabSelectedHandler = handler;
 	}
