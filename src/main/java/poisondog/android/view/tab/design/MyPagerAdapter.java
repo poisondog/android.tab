@@ -55,7 +55,7 @@ public class MyPagerAdapter extends PagerAdapter {
 
 	@Override
 	public CharSequence getPageTitle(int position) {
-		return Integer.toString(position);
+		return "";
 	}
 
 	@Override
