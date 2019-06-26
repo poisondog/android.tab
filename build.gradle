@@ -41,3 +41,6 @@ dependencies {
 	implementation 'poisondog:poisondog.core:1.0.5'
 }
 
+if(new File('/home/poisondog/walton/uploadNexus.gradle').exists()) {
+	apply from: '/home/poisondog/walton/uploadNexus.gradle'
+}
