@@ -43,6 +43,13 @@ public class TabPagerAdapter extends PagerAdapter {
 		return mList.get(index);
 	}
 
+	public void clear() {
+		for (Tab tab : mList) {
+			((ViewGroup)tab.getContent().getParent()).removeView(tab.getContent());
+		}
+		mList.clear();
+	}
+
 	@Override
 	public int getCount() {
 		return mList.size();
