@@ -29,17 +29,25 @@ import poisondog.android.view.tab.design.Tab;
  */
 public class ContentTab implements Tab {
 	private LayoutInflater mInflater;
+	private String mTitle;
+	private TextView mTitleView;
 
 	/**
 	 * Constructor
 	 */
 	public ContentTab(LayoutInflater inflater) {
 		mInflater = inflater;
+		mTitle = "";
+		mTitleView = new TextView(mInflater.getContext());
 	}
 
 	@Override
 	public CharSequence getTitle() {
 		return "demo";
+	}
+
+	public void setTitle(String title) {
+		mTitle = title;
 	}
 
 	@Override
@@ -50,7 +58,7 @@ public class ContentTab implements Tab {
 		Random random = new Random();
 		for (int i = 0; i < random.nextInt(100); i++) {
 			TextView text = new TextView(mInflater.getContext());
-			text.setText("item: " + i);
+			text.setText(mTitle + "\titem: " + i);
 			text.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -71,10 +79,9 @@ public class ContentTab implements Tab {
 
 	@Override
 	public View getTitleView() {
-		TextView text = new TextView(mInflater.getContext());
-		text.setText("demo");
-		text.setGravity(Gravity.CENTER);
-		return text;
+		mTitleView.setText("demo");
+		mTitleView.setGravity(Gravity.CENTER);
+		return mTitleView;
 	}
 
 }

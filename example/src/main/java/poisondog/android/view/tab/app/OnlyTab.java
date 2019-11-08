@@ -45,16 +45,26 @@ public class OnlyTab extends Activity {
 		mTabLayout.setHook(mPager.getHook());
 		mPager.setHook(mTabLayout.getHook());
 
+		Button b3 = createButton("b3");
+		b3.setVisibility(View.GONE);
 		mTabLayout.addView(createButton("b1"));
 		mTabLayout.addView(createButton("b2"));
-		mTabLayout.addView(createButton("b3"));
+		mTabLayout.addView(b3);
 		mTabLayout.addView(createButton("b4"));
 
+		ContentTab content1 = new ContentTab(getLayoutInflater());
+		ContentTab content2 = new ContentTab(getLayoutInflater());
+		ContentTab content3 = new ContentTab(getLayoutInflater());
+		ContentTab content4 = new ContentTab(getLayoutInflater());
+		content1.setTitle("1");
+		content2.setTitle("2");
+		content3.setTitle("3");
+		content4.setTitle("4");
 		TabPagerAdapter adapter = new TabPagerAdapter();
-		adapter.add(new ContentTab(getLayoutInflater()));
-		adapter.add(new ContentTab(getLayoutInflater()));
-		adapter.add(new ContentTab(getLayoutInflater()));
-		adapter.add(new ContentTab(getLayoutInflater()));
+		adapter.add(content1);
+		adapter.add(content2);
+		adapter.add(content3);
+		adapter.add(content4);
 
 		mPager.setAdapter(adapter);
 		mPager.enableSwipe(false);
