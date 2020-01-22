@@ -1,4 +1,5 @@
-project.group = 'poisondog'
+//project.group = 'poisondog'
+project.group = 'com.walton.cob'
 project.version = '1.0.0'
 
 repositories {
@@ -41,6 +42,4 @@ dependencies {
 	implementation 'poisondog:poisondog.core:1.0.5'
 }
 
-if(new File('/home/poisondog/walton/uploadNexus.gradle').exists()) {
-	apply from: '/home/poisondog/walton/uploadNexus.gradle'
-}
+apply from: 'https://raw.githubusercontent.com/poisondog/gradle.tool/master/android/uploadNexus.gradle'
